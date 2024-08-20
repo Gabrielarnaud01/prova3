@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     {
         _playerRigidbody2D = GetComponent<Rigidbody2D>();
         playerInicialSpeed = playerSpeed;
+        animator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -36,6 +37,11 @@ public class Player : MonoBehaviour
 
         Flip(direction);
         PlayerRun();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("isAttacking");
+        }
     }
 
     void AnimateMovent(Vector3 direction)
